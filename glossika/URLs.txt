@@ -3,4 +3,6 @@ https://huggingface.co/spaces/ResembleAI/Chatterbox
 https://annas-archive.org/search?q=glossika+mandarin
 
 
+Esta compañia desarrolló en libros un sistema de frases para el aprendizaje de idiomas, desconozco si eran las mismas frases para todos los idiomas.
+
 

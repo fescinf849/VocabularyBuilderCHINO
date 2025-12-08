@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DUOLINGO Chinese Vocabulary Builder - E01S05</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Fuente 1: China redondeada */
+      .rounded1 {
+        font-family: "ZCOOL XiaoWei", sans-serif !important;
+      }
+
+      /* Fuente 2: Estilo pincel elegante */
+      .rounded2 {
+        font-family: "Ma Shan Zheng", cursive !important;
+      }
+    </style>
+    <style>
+      body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .word_or_phrase {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgb(216, 255, 216);
+      }
+
+      .Q_and_A {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgb(216, 255, 216);
+      }
+
+      .Q_and_A hr {
+        width: 80%;
+        border: 1px solid #ccc !important;
+        margin: 10px auto;
+        display: block;
+      }
+
+      .Q_and_A {
+        position: relative;
+      }
+
+      /* Botón de altavoz */
+      .speakDialog {
+        position: absolute;
+        left: 10px; /* margen desde la izquierda */
+        top: 50%; /* centrado vertical */
+        transform: translateY(-50%);
+        background: none !important;
+        border: none !important;
+        font-size: 40px;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .pinyin {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 0px;
+        color: red;
+        word-spacing: 10px;
+        letter-spacing: 2px;
+        text-indent: 0px;
+        white-space: pre;
+        text-align-last: justify;
+      }
+
+      .chino {
+        display: block;
+        font-size: 50px;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      .trad {
+        display: block;
+        font-size: 18px;
+        margin-top: 6px;
+        color: blue;
+      }
+      .tools {
+        display: flex; /* o inline si prefieres */
+        gap: 6px;
+      }
+      .tool a {
+        font-size: 40px;
+        margin-bottom: 10px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="//mandarinspot.com/static/mandarinspot.min.js"
+      charset="UTF-8"
+    ></script>
+
+    <h1 style="flex-basis: 100%; width: 100%">
+      <i>E01S05 Duolingo. Usa pronombres posesivos.</i>
+    </h1>
+
+    <div class="word_or_phrase">
+      <div class="tools">
+        <span class="tool"
+          ><a
+            target="_blank"
+            href="https://translate.google.com/?hl=es&sl=zh-CN&tl=es&op=translate"
+            >🌍</a
+          ></span
+        >
+        <span class="tool"
+          ><a target="_blank" href="https://www.drawchinese.com/">🎨</a></span
+        >
+        <span class="tool"
+          ><a target="_blank" href="https://soundoftext.com/">🗣️</a></span
+        >
+        <span class="tool"
+          ><a target="_blank" href="https://hanziwriter.org/">🖊️</a></span
+        >
+        <span class="tool"
+          ><a target="_blank" href="https://turboscribe.ai/">✍️</a></span
+        >
+        <span class="tool"
+          ><a
+            target=""
+            id="sinsun"
+            href=""
+            style="filter: hue-rotate(100deg) saturate(5); padding: 10px"
+            >漢</a
+          ></span
+        >
+        <span class="tool"
+          ><a
+            target="_blank"
+            href="https://docs.google.com/spreadsheets/d/19zESh9oc7lhX0oTPsWL5n3MyUqREUkJS7-KI8JGRf1w/edit?usp=sharing"
+            >📅</a
+          ></span
+        >
+      </div>
+      <div class="tools">
+        <span class="tool"
+          ><a
+            target="_blank"
+            href="https://www.duolingo.com/lesson"
+            style="filter: hue-rotate(100deg) saturate(5)"
+            >🦉</a
+          ></span
+        >
+        <span class="tool"
+          ><a target="_blank" href="https://duome.eu/tips/en/zs">🦉</a></span
+        >
+        <span class="tool"
+          ><a
+            target="_blank"
+            href="https://www.archchinese.com/chinese_english_dictionary.html"
+            >📘</a
+          ></span
+        >
+        <span class="tool"
+          ><a
+            target="_blank"
+            href="https://www.archchinese.com/chinese_english_dictionary.html"
+            >📕</a
+          ></span
+        >
+        <span class="tool"
+          ><a target="_blank" href="https://www.pinyinput.com/?lang=en"
+            >⌨️</a
+          ></span
+        >
+        <span class="tool"
+          ><button
+            id="spotOnOff"
+            style="
+              font-size: 40px;
+              background: none;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            🪂
+          </button></span
+        >
+        <span class="tool" title="recargar página"
+          ><button
+            id="reload"
+            style="
+              font-size: 40px;
+              background: none;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            🌀
+          </button></span
+        >
+      </div>
+      <!-- <span class="tool">🌴🕵🏻‍♀️🏆😿🗺🍉🌞🔎👁</span> -->
+    </div>
+
+    <!--VOCABULARIO: WORDS & PHRASES-->
+<div class="word_or_phrase"><span class="pinyin"> zhè shì </span><span class="chino">这是</span><span class="trad">esto es</span></div>
+<div class="word_or_phrase"><span class="pinyin"> ér zi </span><span class="chino">儿子</span><span class="trad">hijo</span></div>
+<div class="word_or_phrase"><span class="pinyin"> wǒ de bà ba </span><span class="chino">我的爸爸</span><span class="trad">mi papá</span></div>
+<div class="word_or_phrase"><span class="pinyin"> wǒ de bà ba shì zhōng wén lǎo shī 。 </span><span class="chino">我的爸爸是中文老师。</span><span class="trad">mi papá es profesor de chino.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> xǐ huan </span><span class="chino">喜欢</span><span class="trad">gustar</span></div>
+<div class="word_or_phrase"><span class="pinyin"> zhè shì wǒ de ér zi </span><span class="chino">这是我的儿子</span><span class="trad">este es mi hijo</span></div>
+<div class="word_or_phrase"><span class="pinyin"> lǎo gong </span><span class="chino">老公</span><span class="trad">marido</span></div>
+<div class="word_or_phrase"><span class="pinyin"> lǎo pó </span><span class="chino">老婆</span><span class="trad">esposa</span></div>
+<div class="word_or_phrase"><span class="pinyin"> wǒ de ér zi shì lǜ shī 。 </span><span class="chino">我的儿子是律师。</span><span class="trad">mi hijo es abogado.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> nǐ de mā ma </span><span class="chino">你的妈妈</span><span class="trad">tu madre</span></div>
+<div class="word_or_phrase"><span class="pinyin"> tā shì yīng guó rén 。 tā shuō yīng wén 。 </span><span class="chino">她是英国人。她说英文。</span><span class="trad">ella es británica. ella habla inglés.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> shuō </span><span class="chino">说</span><span class="trad">explicar</span></div>
+<div class="word_or_phrase"><span class="pinyin"> wǒ de bà ba shì yī shēng 。 </span><span class="chino">我的爸爸是医生。</span><span class="trad">mi papá es médico.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> duì bù duì </span><span class="chino">对不对</span><span class="trad">¿es correcto o incorrecto?</span></div>
+<div class="word_or_phrase"><span class="pinyin"> tā de lǎo gong shì měi guó rén 。 </span><span class="chino">她的老公是美国人。</span><span class="trad">su marido es estadounidense.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> kè </span><span class="chino">课</span><span class="trad">clase</span></div>
+<div class="word_or_phrase"><span class="pinyin"> yīn yuè </span><span class="chino">音乐</span><span class="trad">música</span></div>
+<div class="word_or_phrase"><span class="pinyin"> zhè shì tā de lǎo gong ， duì bù duì ？ </span><span class="chino">这是她的老公，对不对？</span><span class="trad">éste es su marido, ¿no?</span></div>
+<div class="word_or_phrase"><span class="pinyin"> duì ！ </span><span class="chino">对！</span><span class="trad">¡bien!</span></div>
+<div class="word_or_phrase"><span class="pinyin"> tā de bà ba shì yīng guó rén 。 </span><span class="chino">她的爸爸是英国人。</span><span class="trad">su padre es británico.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> tā de lǎo pó shì yīng guó rén 。 </span><span class="chino">他的老婆是英国人。</span><span class="trad">su esposa es británica.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> jiā ná dà </span><span class="chino">加拿大</span><span class="trad">canadá</span></div>
+<div class="word_or_phrase"><span class="pinyin"> tā de mā ma shì yī shēng ma ？ </span><span class="chino">他的妈妈是医生吗？</span><span class="trad">¿su madre es doctora?</span></div>
+<div class="word_or_phrase"><span class="pinyin"> lǜ shī </span><span class="chino">律师</span><span class="trad">abogado</span></div>
+<div class="word_or_phrase"><span class="pinyin"> tā de lǎo pó shì lǜ shī ma ？ </span><span class="chino">他的老婆是律师吗？</span><span class="trad">¿su esposa es abogada?</span></div>
+<div class="word_or_phrase"><span class="pinyin"> nǚ ér </span><span class="chino">女儿</span><span class="trad">hija</span></div>
+<div class="word_or_phrase"><span class="pinyin"> tā de bà ba shì jiā ná dà rén ma ？ </span><span class="chino">他的爸爸是加拿大人吗？</span><span class="trad">¿su padre es canadiense?</span></div>
+<div class="word_or_phrase"><span class="pinyin"> wǒ de nǚ ér shì lǎo shī 。 </span><span class="chino">我的女儿是老师。</span><span class="trad">mi hija es maestra.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> zhōng xué shēng </span><span class="chino">中学生</span><span class="trad">estudiante de secundaria</span></div>
+<div class="word_or_phrase"><span class="pinyin"> duì ， wǒ de ér zi shì zhōng xué shēng 。 </span><span class="chino">对，我的儿子是中学生。</span><span class="trad">sí, mi hijo es un estudiante de secundaria.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> nǐ de nǚ ér shì zhōng xué shēng ma ？ </span><span class="chino">你的女儿是中学生吗？</span><span class="trad">¿tu hija es estudiante de secundaria?</span></div>
+<div class="word_or_phrase"><span class="pinyin"> yě </span><span class="chino">也</span><span class="trad">también</span></div>
+<div class="word_or_phrase"><span class="pinyin"> nǐ yě shì lǎo shī ma ？ </span><span class="chino">你也是老师吗？</span><span class="trad">¿eres profesor también?</span></div>
+<div class="word_or_phrase"><span class="pinyin"> zhè shì </span><span class="chino">这是</span><span class="trad">esto es</span></div>
+<div class="word_or_phrase"><span class="pinyin"> wǒ de nǚ ér yě shì yī shēng 。 </span><span class="chino">我的女儿也是医生。</span><span class="trad">mi hija también es médico.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> zhè shì wǒ de ér zi 。 tā shì xué sheng 。 </span><span class="chino">这是我的儿子。他是学生。</span><span class="trad">este es mi hijo. él es un estudiante.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> duì ， zhè shì wǒ de bà ba 。 </span><span class="chino">对，这是我的爸爸。</span><span class="trad">sí, este es mi papá.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> wǒ de ér zi shì dà xué shēng 。 </span><span class="chino">我的儿子是大学生。</span><span class="trad">mi hijo es un estudiante universitario.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> tā de lǎo gong shì yīng guó rén 。 </span><span class="chino">她的老公是英国人。</span><span class="trad">su marido es británico.</span></div>
+<div class="word_or_phrase"><span class="pinyin"> nǐ shì hán guó rén ma ？ </span><span class="chino">你是韩国人吗？</span><span class="trad">¿eres coreano?</span></div>
+<div class="word_or_phrase"><span class="pinyin"> zhè shì nǐ de mā ma ， duì bù duì ？ </span><span class="chino">这是你的妈妈，对不对</span><span class="trad">ésta es tu madre, ¿no?</span></div>
+    <!-- END VOCABULARIO-->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const entries = document.querySelectorAll(".word_or_phrase");
+
+        function getChineseText(word_or_phrase) {
+          return word_or_phrase.querySelector(".chino").innerText.trim();
+        }
+
+        function speakChinese(text) {
+          const utter = new SpeechSynthesisUtterance(text);
+
+          // Velocidad al 75%
+          utter.rate = 0.75;
+
+          // Forzar idioma chino mandarín
+          utter.lang = "zh-CN";
+
+          // Buscar voz china (si el sistema tiene instalada)
+          const voices = speechSynthesis.getVoices();
+          const chineseVoice = voices.find((v) => v.lang.startsWith("zh"));
+
+          if (chineseVoice) {
+            utter.voice = chineseVoice;
+          }
+
+          speechSynthesis.cancel(); // detener cualquier lectura anterior
+          speechSynthesis.speak(utter);
+        }
+
+        // Como las voces pueden tardar en cargarse
+        window.speechSynthesis.onvoiceschanged = () => {};
+
+        entries.forEach((word_or_phrase) => {
+          word_or_phrase.style.cursor = "pointer";
+          word_or_phrase.addEventListener("click", () => {
+            const chinese = getChineseText(word_or_phrase);
+            speakChinese(chinese);
+          });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- tu código original aquí --- //
+
+        const sinsun = document.getElementById("sinsun");
+        let fontState = 0; // 0 = sistema, 1 = rounded1, 2 = rounded2
+
+        sinsun.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const chinos = document.querySelectorAll(".chino");
+
+          fontState = (fontState + 1) % 3; // ciclo 0 → 1 → 2 → 0
+
+          chinos.forEach((el) => {
+            // primero limpiamos todas las fuentes anteriores
+            el.classList.remove("rounded1", "rounded2");
+
+            // aplicamos según el estado
+            if (fontState === 1) {
+              el.classList.add("rounded1");
+            } else if (fontState === 2) {
+              el.classList.add("rounded2");
+            }
+            // si fontState === 0 → queda sin clase → fuente “cuadrada” original
+          });
+        });
+      });
+    </script>
+
+    <script>
+      mandarinspot.annotate(".chino");
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("spotOnOff");
+        let spotActive = false; // 🔴 Estado inicial: DESACTIVADO
+
+        // --- Al cargar la página, asegurarnos de que NO haya anotaciones ---
+        document
+          .querySelectorAll(".mandarinspot_annotation")
+          .forEach((el) => el.remove());
+        document
+          .querySelectorAll(".mandarinspot_tooltip")
+          .forEach((el) => el.remove());
+        document.querySelectorAll(".chino").forEach((el) => {
+          el.innerHTML = el.textContent; // limpia el HTML
+        });
+
+        toggleBtn.addEventListener("click", (e) => {
+          e.preventDefault(); // evitar navegación
+
+          if (!spotActive) {
+            // --- ACTIVAR MANDARIN SPOT ---
+            mandarinspot.annotate(".chino", {
+              phonetic: "pinyin",
+              inline: false,
+            });
+            spotActive = true;
+          } else {
+            // --- DESACTIVAR MANDARIN SPOT ---
+            document
+              .querySelectorAll(".mandarinspot_annotation")
+              .forEach((el) => el.remove());
+            document
+              .querySelectorAll(".mandarinspot_tooltip")
+              .forEach((el) => el.remove());
+            document.querySelectorAll(".chino").forEach((el) => {
+              el.innerHTML = el.textContent; // restaura solo el texto
+            });
+            spotActive = false;
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        function getChineseVoices() {
+          let voices = speechSynthesis
+            .getVoices()
+            .filter((v) => v.lang.startsWith("zh"));
+
+          let male = null;
+          let female = null;
+
+          male = voices.find((v) =>
+            /(male|bo|nan|cmn-hans-cn|deepmind.*male)/i.test(v.name)
+          );
+          female = voices.find((v) =>
+            /(female|nv|woman|girl|cmn-Hans-CN|deepmind.*female)/i.test(v.name)
+          );
+
+          if (!male) male = voices.find((v) => v.pitch < 1.0);
+          if (!female) female = voices.find((v) => v.pitch >= 1.0);
+
+          if (!male) male = voices[0] || null;
+          if (!female) female = voices[1] || male;
+
+          return { male, female };
+        }
+
+        function speak(text, voice, callback = null) {
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = "zh-CN";
+          u.rate = 0.75;
+          if (voice) u.voice = voice;
+          if (callback) u.onend = callback;
+          speechSynthesis.speak(u);
+        }
+
+        const buttons = document.querySelectorAll(".speakDialog");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const qaBox = button.closest(".Q_and_A"); // tarjeta asociada
+            const phrases = qaBox.querySelectorAll(".chino"); // solo de esta tarjeta
+
+            if (!phrases.length) return;
+
+            const { male, female } = getChineseVoices();
+
+            let index = 0;
+
+            function readNext() {
+              if (index >= phrases.length) return;
+
+              const text = phrases[index].innerText.trim();
+              const voice = index % 2 === 0 ? female : male; // alterna
+
+              speak(text, voice, () => {
+                index++;
+                readNext();
+              });
+            }
+
+            readNext(); // iniciar lectura secuencial
+          });
+        });
+
+        window.speechSynthesis.onvoiceschanged = () => {};
+      });
+    </script>
+  </body>
+</html>

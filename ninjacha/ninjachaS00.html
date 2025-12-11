@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NINJACHA Chinese Vocabulary Builder</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Fuente 1: China redondeada */
+      .rounded1 {
+        font-family: "ZCOOL XiaoWei", sans-serif !important;
+      }
+
+      /* Fuente 2: Estilo pincel elegante */
+      .rounded2 {
+        font-family: "Ma Shan Zheng", cursive !important;
+      }
+    </style>
+    <style>
+      body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        background-color: rgb(48, 47, 47);
+      }
+
+      .word_or_phrase {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+        border: 1px solid #f56d13;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgb(201, 199, 199);
+      }
+
+      .Q_and_A {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: rgb(216, 255, 216);
+      }
+
+      .Q_and_A hr {
+        width: 80%;
+        border: 1px solid #ccc !important;
+        margin: 10px auto;
+        display: block;
+      }
+
+      .Q_and_A {
+        position: relative;
+      }
+
+      /* Botón de altavoz */
+      .speakDialog {
+        position: absolute;
+        left: 10px; /* margen desde la izquierda */
+        top: 50%; /* centrado vertical */
+        transform: translateY(-50%);
+        background: none !important;
+        border: none !important;
+        font-size: 40px;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .pinyin {
+        display: block;
+        font-size: 16px;
+        margin-bottom: 0px;
+        color: red;
+        word-spacing: 10px;
+        letter-spacing: 2px;
+        text-indent: 0px;
+        white-space: pre;
+        text-align-last: justify;
+      }
+
+      .chino {
+        display: block;
+        font-size: 50px;
+        font-weight: 500;
+        margin-bottom: 5px;
+      }
+
+      .trad {
+        display: block;
+        font-size: 18px;
+        margin-top: 6px;
+        color: blue;
+      }
+      .tools {
+        display: flex; /* o inline si prefieres */
+        gap: 6px;
+      }
+      .tool a {
+        font-size: 40px;
+        margin-bottom: 10px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <script
+      src="//mandarinspot.com/static/mandarinspot.min.js"
+      charset="UTF-8"
+    ></script>
+
+    <h1 style="flex-basis: 100%; width: 100%;color:orange;">
+      <i>NINJACHA. Saludos y Despedidas</i>
+    </h1>
+
+    <div class="word_or_phrase">
+      <div class="tools">
+        <span class="tool"
+          ><a
+            target="_blank" title="WWW:: Google Translate"
+            href="https://translate.google.com/?hl=es&sl=zh-CN&tl=es&op=translate"
+            >🌍</a
+          ></span
+        >
+        <span class="tool" title="WWW:: Dibuja y Reconoce caracteres"
+          ><a target="_blank" href="https://www.drawchinese.com/">🎨</a></span
+        >
+        <span class="tool" title="WWW:: Sonido de Palabras y Frases"
+          ><a target="_blank" href="https://soundoftext.com/">🗣️</a></span
+        >
+        <span class="tool" title="WWW:: Transcripciones"
+          ><a target="_blank" href="https://turboscribe.ai/">🖊️</a></span
+        >
+        <span class="tool" title="WWW:: Cómo se escribe un carácter"
+          ><a target="_blank" href="https://hanziwriter.org/demo.html">✍️</a></span
+        >
+        <span class="tool" title="Cambiar las fuentes de Chino"
+          ><a
+            target=""
+            id="sinsun"
+            href=""
+            style="filter: hue-rotate(100deg) saturate(5); padding: 10px"
+            >漢</a
+          ></span
+        >
+        <span class="tool" title="WWW:: Google Spreadsheets"
+          ><a
+            target="_blank"
+            href="https://docs.google.com/spreadsheets/d/1NykYX_pKyLwgWXRXyzxk49yfwN6Koiaa8jJROq3XI_4/edit?usp=sharing"
+            >📅</a
+          ></span
+        >
+      </div>
+      <div class="tools">
+        <span class="tool"
+          ><a
+            target="_blank" title="WWW:: Duolingo"
+            href="https://www.duolingo.com/lesson"
+            style="filter: hue-rotate(100deg) saturate(5)"
+            >🦉</a
+          ></span
+        >
+        <span class="tool"
+          ><a
+            target="_blank" title="WWW:: Diccionario Arch Chinese"
+            href="https://www.archchinese.com/chinese_english_dictionary.html"
+            >📘</a
+          ></span
+        >
+        <span class="tool"
+          ><a
+            target="_blank" title="WWW:: Diccionario Arch Chinese"
+            href="https://www.archchinese.com/chinese_english_dictionary.html"
+            >📕</a
+          ></span
+        >
+        <span class="tool" title="WWW:: Pinyinput Keyboard"
+          ><a target="_blank" href="https://www.pinyinput.com/?lang=en"
+            >⌨️</a
+          ></span
+        >
+        <span class="tool" title="mezclar/ordenar tarjetas aleatoriamente">
+            <button
+                id="shuffleBtn"
+                style="
+                    font-size: 38px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                "
+            >
+                🌀
+            </button>
+        </span>
+        <span class="tool" title="activar/desactivar Mandarin Spot"
+          ><button
+            id="spotOnOff"
+            style="
+              font-size: 38px;
+              background: none;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            🪂
+          </button></span
+        >
+        <span class="tool" title="recargar página"
+          ><button
+            id="reload"
+            style="
+              font-size: 40px;
+              background: none;
+              border: none;
+              cursor: pointer;
+            "
+            onclick="location.reload();">
+            🗘
+          </button></span
+        >
+      </div>
+      <!-- <span class="tool">⟳🌀🌴🕵🏻‍♀️🏆😿🗺🍉🌞🔎👁</span> -->
+      <!--https://www.amp-what.com/-->
+    </div>
+
+    <!--VOCABULARIO: WORDS & PHRASES-->
+<div class="word_or_phrase"><span class="pinyin">&nbsp;nǐ hǎo&nbsp;</span><span class="chino">你好</span><span class="trad">hola</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;nǐ&nbsp;</span><span class="chino">你</span><span class="trad">tú</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;hǎo&nbsp;</span><span class="chino">好</span><span class="trad">bien</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;nǐ hǎo ！ wǒ jiào xiǎo yuè 。&nbsp;</span><span class="chino">你好！我叫小月。</span><span class="trad">¡hola! me llamo xiaoyue.</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;wǒ&nbsp;</span><span class="chino">我</span><span class="trad">yo</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;jiào&nbsp;</span><span class="chino">叫</span><span class="trad">llamar</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;xiǎo&nbsp;</span><span class="chino">小</span><span class="trad">pequeño</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;yuè&nbsp;</span><span class="chino">月</span><span class="trad">luna</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;nǐ jiào shén me míng zì ？&nbsp;</span><span class="chino">你叫什么名字？</span><span class="trad">¿me puede decir su nombre?</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;xiè&nbsp;</span><span class="chino">谢</span><span class="trad">gracias</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;xiè xie&nbsp;</span><span class="chino">谢谢</span><span class="trad">gracias</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;xiè xie nǐ&nbsp;</span><span class="chino">谢谢你</span><span class="trad">gracias</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;duì bù duì&nbsp;</span><span class="chino">对不对</span><span class="trad">¿es correcto o incorrecto?</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;duì&nbsp;</span><span class="chino">对</span><span class="trad">bien</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;bù&nbsp;</span><span class="chino">不</span><span class="trad">no</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;zài jiàn&nbsp;</span><span class="chino">再见</span><span class="trad">adiós</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;zài&nbsp;</span><span class="chino">再</span><span class="trad">de nuevo</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;jiàn&nbsp;</span><span class="chino">见</span><span class="trad">ver</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;wǒ jiào xiāo yuè 。 zài jiàn ！&nbsp;</span><span class="chino">我叫萧月。再见！</span><span class="trad">mi nombre es xiao yue. ¡adiós!</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;shí&nbsp;</span><span class="chino">什</span><span class="trad">variado</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;me&nbsp;</span><span class="chino">么</span><span class="trad">qué</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;shén me&nbsp;</span><span class="chino">什么</span><span class="trad">qué</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;míng&nbsp;</span><span class="chino">名</span><span class="trad">nombre</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;zì&nbsp;</span><span class="chino">字</span><span class="trad">personaje</span></div>
+<div class="word_or_phrase"><span class="pinyin">&nbsp;míng zì&nbsp;</span><span class="chino">名字</span><span class="trad">nombre</span></div>
+    <!-- END VOCABULARIO-->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const entries = document.querySelectorAll(".word_or_phrase");
+
+        function getChineseText(word_or_phrase) {
+          return word_or_phrase.querySelector(".chino").innerText.trim();
+        }
+
+        function speakChinese(text) {
+          const utter = new SpeechSynthesisUtterance(text);
+
+          // Velocidad al 75%
+          utter.rate = 0.75;
+
+          // Forzar idioma chino mandarín
+          utter.lang = "zh-CN";
+
+          // Buscar voz china (si el sistema tiene instalada)
+          const voices = speechSynthesis.getVoices();
+          const chineseVoice = voices.find((v) => v.lang.startsWith("zh"));
+
+          if (chineseVoice) {
+            utter.voice = chineseVoice;
+          }
+
+          speechSynthesis.cancel(); // detener cualquier lectura anterior
+          speechSynthesis.speak(utter);
+        }
+
+        // Como las voces pueden tardar en cargarse
+        window.speechSynthesis.onvoiceschanged = () => {};
+
+        entries.forEach((word_or_phrase) => {
+          word_or_phrase.style.cursor = "pointer";
+          word_or_phrase.addEventListener("click", () => {
+            const chinese = getChineseText(word_or_phrase);
+            speakChinese(chinese);
+          });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- tu código original aquí --- //
+
+        const sinsun = document.getElementById("sinsun");
+        let fontState = 0; // 0 = sistema, 1 = rounded1, 2 = rounded2
+
+        sinsun.addEventListener("click", (e) => {
+          e.preventDefault();
+
+          const chinos = document.querySelectorAll(".chino");
+
+          fontState = (fontState + 1) % 3; // ciclo 0 → 1 → 2 → 0
+
+          chinos.forEach((el) => {
+            // primero limpiamos todas las fuentes anteriores
+            el.classList.remove("rounded1", "rounded2");
+
+            // aplicamos según el estado
+            if (fontState === 1) {
+              el.classList.add("rounded1");
+            } else if (fontState === 2) {
+              el.classList.add("rounded2");
+            }
+            // si fontState === 0 → queda sin clase → fuente “cuadrada” original
+          });
+        });
+      });
+    </script>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        function getChineseVoices() {
+          let voices = speechSynthesis
+            .getVoices()
+            .filter((v) => v.lang.startsWith("zh"));
+
+          let male = null;
+          let female = null;
+
+          male = voices.find((v) =>
+            /(male|bo|nan|cmn-hans-cn|deepmind.*male)/i.test(v.name)
+          );
+          female = voices.find((v) =>
+            /(female|nv|woman|girl|cmn-Hans-CN|deepmind.*female)/i.test(v.name)
+          );
+
+          if (!male) male = voices.find((v) => v.pitch < 1.0);
+          if (!female) female = voices.find((v) => v.pitch >= 1.0);
+
+          if (!male) male = voices[0] || null;
+          if (!female) female = voices[1] || male;
+
+          return { male, female };
+        }
+
+        function speak(text, voice, callback = null) {
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = "zh-CN";
+          u.rate = 0.75;
+          if (voice) u.voice = voice;
+          if (callback) u.onend = callback;
+          speechSynthesis.speak(u);
+        }
+
+        const buttons = document.querySelectorAll(".speakDialog");
+
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const qaBox = button.closest(".Q_and_A"); // tarjeta asociada
+            const phrases = qaBox.querySelectorAll(".chino"); // solo de esta tarjeta
+
+            if (!phrases.length) return;
+
+            const { male, female } = getChineseVoices();
+
+            let index = 0;
+
+            function readNext() {
+              if (index >= phrases.length) return;
+
+              const text = phrases[index].innerText.trim();
+              const voice = index % 2 === 0 ? female : male; // alterna
+
+              speak(text, voice, () => {
+                index++;
+                readNext();
+              });
+            }
+
+            readNext(); // iniciar lectura secuencial
+          });
+        });
+
+        window.speechSynthesis.onvoiceschanged = () => {};
+      });
+    </script>
+
+    
+    <!-- ========================================= -->
+    <!--   MANDARIN SPOT: IMPLEMENTACIÓN ESTABLE   -->
+    <!-- ========================================= -->
+
+    <script>
+    /* 1️⃣ Guardar texto original de cada .chino al iniciar */
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".chino").forEach(el => {
+        el.dataset.original = el.innerText.trim(); // guardamos copia original
+      });
+    });
+    </script>
+
+    <script>
+    /* 2️⃣ Funciones para activar y desactivar MandarinSpot */
+
+    function activateMandarinSpot() {
+      // Asegura DOM 100% estable antes de anotar
+      setTimeout(() => {
+        mandarinspot.annotate(".chino", {
+          phonetic: "pinyin",
+          inline: false
+        });
+      }, 50);
+    }
+
+    function deactivateMandarinSpot() {
+      // Quitar anotaciones creadas por MandarinSpot
+      document.querySelectorAll(".mandarinspot_annotation").forEach(el => el.remove());
+      document.querySelectorAll(".mandarinspot_tooltip").forEach(el => el.remove());
+
+      // Restaurar texto original sin alterar estructura
+      document.querySelectorAll(".chino").forEach(el => {
+        el.innerHTML = el.dataset.original;
+      });
+    }
+    </script>
+
+    <script>
+    /* 3️⃣ Botón toggle */
+    document.addEventListener("DOMContentLoaded", () => {
+
+      let spotActive = false; // ⛔ Estado inicial: DESACTIVADO
+      const toggleBtn = document.getElementById("spotOnOff");
+
+      toggleBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (!spotActive) {
+          activateMandarinSpot();
+          spotActive = true;
+        } else {
+          deactivateMandarinSpot();
+          spotActive = false;
+        }
+      });
+
+    });
+    </script>
+ <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const shuffleBtn = document.getElementById("shuffleBtn");
+        
+        // Asignamos un ID fijo al contenedor de herramientas para usarlo como referencia
+        // Nota: Asumo que el primer div con la clase .word_or_phrase es el contenedor de herramientas.
+        const toolContainer = document.querySelector('.word_or_phrase');
+        if (toolContainer && !toolContainer.querySelector('.chino')) {
+            toolContainer.id = 'tool-panel';
+        }
+
+        if (shuffleBtn) {
+            shuffleBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                shuffleCards();
+            });
+        }
+
+        function shuffleCards() {
+            // 1. Obtener todas las tarjetas de VOCABULARIO (las que tienen .chino)
+            const container = document.body;
+            // Usamos un filtro más estricto para asegurarnos de no incluir el panel de herramientas
+            const cardsToShuffle = Array.from(document.querySelectorAll(".word_or_phrase"))
+                                       .filter(card => card.querySelector('.chino'));
+            
+            if (cardsToShuffle.length === 0) {
+                console.warn("No se encontraron tarjetas de vocabulario para mezclar.");
+                return;
+            }
+            
+            // 2. Función de mezcla (Algoritmo de Fisher-Yates)
+            for (let i = cardsToShuffle.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cardsToShuffle[i], cardsToShuffle[j]] = [cardsToShuffle[j], cardsToShuffle[i]];
+            }
+
+            // 3. Obtener el punto de referencia para la inserción
+            // Queremos insertarlas después del último elemento fijo, que es el panel de herramientas (o el h1 si no existe)
+            const referenceElement = document.getElementById('tool-panel') || document.querySelector('h1');
+            
+            // 4. Fragmento para reinsertar de forma eficiente (reduce el redibujado del DOM)
+            const fragment = document.createDocumentFragment();
+
+            // 5. Mover las tarjetas mezcladas al fragmento
+            cardsToShuffle.forEach(card => {
+                fragment.appendChild(card);
+            });
+
+            // 6. Insertar el fragmento (que contiene todas las tarjetas mezcladas) después de la referencia
+            if (referenceElement && referenceElement.nextSibling) {
+                container.insertBefore(fragment, referenceElement.nextSibling);
+            } else {
+                 // Si no hay punto de referencia, simplemente añadir al final
+                container.appendChild(fragment);
+            }
+
+            console.log(`✅ ${cardsToShuffle.length} tarjetas han sido mezcladas y reordenadas.`);
+        }
+    });
+</script>
+
+  </body>
+</html>
